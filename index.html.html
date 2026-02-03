@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Happy Birthday Ravi!!! 🎉</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            }
+            25% {
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ffd876 100%);
+            }
+            50% {
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
+            }
+            75% {
+                background: linear-gradient(135deg, #fa709a 0%, #fee140 50%, #30cfd0 100%);
+            }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+            }
+        }
+
+        .song {
+            display: none;
+        }
+
+        .container {
+            height: 100vh;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            visibility: hidden;
+            width: 100vw;
+        }
+
+        .container > div {
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 20vh;
+        }
+
+        .one {
+            font-size: 4.5rem;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f093fb);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 3s ease infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes gradientText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .one span {
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .two {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .three {
+            font-size: 3.5rem;
+            font-family: 'Pacifico', cursive;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                         0 0 40px rgba(255, 215, 0, 0.6),
+                         3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                             0 0 40px rgba(255, 215, 0, 0.6),
+                             3px 3px 6px rgba(0, 0, 0, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(255, 215, 0, 1),
+                             0 0 60px rgba(255, 215, 0, 0.8),
+                             3px 3px 6px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        .four .text-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            border: 4px solid #fff;
+            border-radius: 20px;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                        0 0 40px rgba(255, 215, 0, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .text-box p {
+            margin: 0;
+            text-align: left;
+            font-size: 1.3rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .text-box span {
+            visibility: hidden;
+        }
+
+        .text-box .fake-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            bottom: -60px;
+            color: #fff;
+            padding: 1rem 2rem;
+            position: absolute;
+            right: 20px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .text-box .fake-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.7);
+        }
+
+        .five p {
+            font-size: 2.5rem;
+            left: 0;
+            position: absolute;
+            right: 0;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+        }
+
+        .idea-3 strong {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            border-radius: 10px;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.5);
+        }
+
+        .five .idea-5 {
+            font-size: 5rem;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 3s ease infinite;
+        }
+
+        .idea-5 span,
+        .idea-6 span,
+        .wish-hbd span {
+            display: inline-block;
+        }
+
+        .idea-6 span {
+            font-size: 18rem;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(45deg, #f093fb, #f5576c, #ffd876);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 2s ease infinite;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+
+        .six {
+            position: relative;
+            top: 10vh;
+            z-index: 1;
+        }
+
+        .six img.profile-picture {
+            display: inline-block;
+            height: 350px;
+            width: 350px;
+            max-width: 100%;
+            border-radius: 50%;
+            border: 10px solid #fff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                        0 0 50px rgba(255, 215, 0, 0.6);
+            object-fit: cover;
+            animation: profileGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes profileGlow {
+            0%, 100% {
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                            0 0 50px rgba(255, 215, 0, 0.6);
+            }
+            50% {
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                            0 0 80px rgba(255, 215, 0, 1);
+            }
+        }
+
+        .six .hat {
+            left: 41.5%;
+            position: absolute;
+            top: -35%;
+            width: 120px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .baloons img {
+            display: inline-block;
+            position: absolute;
+            width: 80px;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        .baloons img:nth-child(even) {
+            left: -10%;
+        }
+
+        .baloons img:nth-child(odd) {
+            right: -10%;
+        }
+
+        .baloons img:nth-child(3n + 0) {
+            left: 30%;
+        }
+
+        .seven,
+        .eight {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            width: 100vw;
+        }
+
+        .eight svg {
+            left: 0;
+            position: absolute;
+            top: 0;
+            visibility: hidden;
+            width: 40px;
+            z-index: -1;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .eight svg:nth-child(1) {
+            fill: #ff6b6b;
+            left: 5vw;
+            top: 7vh;
+        }
+
+        .eight svg:nth-child(2) {
+            fill: #4ecdc4;
+            left: 35vw;
+            top: 23vh;
+        }
+
+        .eight svg:nth-child(3) {
+            fill: #45b7d1;
+            left: 23vw;
+            top: 33vh;
+        }
+
+        .eight svg:nth-child(4) {
+            fill: #f093fb;
+            left: 57vw;
+            top: 43vh;
+        }
+
+        .eight svg:nth-child(5) {
+            fill: #ffd876;
+            left: 7vw;
+            top: 68vh;
+        }
+
+        .eight svg:nth-child(6) {
+            fill: #f5576c;
+            left: 77vw;
+            top: 42vh;
+        }
+
+        .eight svg:nth-child(7) {
+            fill: #a29bfe;
+            left: 83vw;
+            top: 68vh;
+        }
+
+        .eight svg:nth-child(8) {
+            fill: #fd79a8;
+            left: 37vw;
+            top: 86vh;
+        }
+
+        .eight svg:nth-child(9) {
+            fill: #00b894;
+            left: 87vw;
+            top: 94vh;
+        }
+
+        .wish-hbd {
+            font-size: 4em;
+            margin: 0;
+            text-transform: uppercase;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #f093fb, #ffd876);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientText 3s ease infinite;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        .wish h5 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin: 10px 0 0;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nine p {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        #replay {
+            cursor: pointer;
+            z-index: 3;
+            color: #ffd876;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: all 0.3s;
+        }
+
+        #replay:hover {
+            color: #f5576c;
+            transform: scale(1.1);
+        }
+
+        .last-smile {
+            font-size: 4rem;
+            filter: drop-shadow(0 5px 15px rgba(255, 215, 0, 0.5));
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            animation: confetti-fall 5s linear infinite;
+            z-index: 1000;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 500px) {
+            .container {
+                width: 90%;
+            }
+
+            .one {
+                font-size: 3rem;
+            }
+
+            .two {
+                font-size: 1.1rem;
+            }
+
+            .three {
+                font-size: 2rem;
+            }
+
+            .four .text-box {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .text-box p {
+                font-size: 1.1rem;
+            }
+
+            .text-box .fake-btn {
+                bottom: -50px;
+                right: 10px;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .five p {
+                font-size: 1.8rem;
+            }
+
+            .idea-5 span {
+                display: block;
+            }
+
+            .five .idea-5 {
+                font-size: 3rem;
+            }
+
+            .idea-6 span {
+                font-size: 10rem;
+            }
+
+            .six img.profile-picture {
+                height: 250px;
+                width: 250px;
+            }
+
+            .six .hat {
+                width: 70px;
+                left: 38%;
+            }
+
+            .wish-hbd {
+                font-size: 2.5em;
+            }
+
+            .wish h5 {
+                font-size: 1.5rem;
+            }
+
+            .nine p {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-bg"></div>
+
+    <audio class="song" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div class="one">
+            <h1 class="one">
+                Hi
+                <span id="name">Ravi</span>
+            </h1>
+            <p class="two" id="greetingText">btw I really like your name!</p>
+        </div>
+
+        <div class="three">
+            <p>It's your birthday!! :D</p>
+        </div>
+
+        <div class="four">
+            <div class="text-box">
+                <p class="hbd-chatbox">Happy Birthday my love 💕🎉
+You are my strength, my happiness, and my best friend.
+Thank you for always loving and supporting me.
+I am so lucky to have you 😘💝</p>
+                <p class="fake-btn">Send</p>
+            </div>
+        </div>
+
+        <div class="five">
+            <p class="idea-1">That's what I was going to do.</p>
+            <p class="idea-2">But then I stopped.</p>
+            <p class="idea-3">
+                I realised, I wanted to do something<br>
+                <strong>special</strong>.
+            </p>
+            <p class="idea-4">Because,</p>
+            <p class="idea-5">
+                You are Special
+                <span>:)</span>
+            </p>
+            <p class="idea-6">
+                <span>S</span>
+                <span>O</span>
+            </p>
+        </div>
+
+        <div class="six">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='350'%3E%3Crect fill='%23ddd' width='350' height='350'/%3E%3Ctext x='50%25' y='50%25' font-size='60' text-anchor='middle' dy='.3em' fill='%23999'%3E❤️ Ravi%3C/text%3E%3C/svg%3E" alt="profile" class="profile-picture" id="imagePath"/>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ff6b6b' d='M50 10 L40 40 L10 40 L35 60 L25 90 L50 70 L75 90 L65 60 L90 40 L60 40 Z'/%3E%3Ccircle cx='50' cy='35' r='25' fill='%23ffd876'/%3E%3Cpath d='M30 35 Q30 25 40 25 Q45 20 50 25 Q55 20 60 25 Q70 25 70 35' fill='%23ff6b6b'/%3E%3C/svg%3E" alt="hat" class="hat" />
+            <div class="wish">
+                <h3 class="wish-hbd">Happy Birthday!</h3>
+                <h5 id="wishText">May God always be with you! ;)</h5>
+            </div>
+        </div>
+
+        <div class="seven">
+            <div class="baloons">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%23ff6b6b'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%23ff6b6b'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%234ecdc4'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%234ecdc4'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%23f093fb'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%23f093fb'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%23ffd876'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%23ffd876'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%23a29bfe'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%23a29bfe'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%2300b894'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%2300b894'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%23fd79a8'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%23fd79a8'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%23ff6b6b'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%23ff6b6b'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%234ecdc4'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%234ecdc4'/%3E%3C/svg%3E" alt="balloon" />
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 150'%3E%3Cellipse cx='50' cy='50' rx='35' ry='45' fill='%23f093fb'/%3E%3Cpath d='M50 95 Q48 110 45 120' stroke='%23999' stroke-width='2' fill='none'/%3E%3Cpolygon points='45,120 50,125 43,123' fill='%23f093fb'/%3E%3C/svg%3E" alt="balloon" />
+            </div>
+        </div>
+
+        <div class="eight">
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" />
+            </svg>
+        </div>
+
+        <div class="nine">
+            <p>Okay, now come back and tell me if you liked it.</p>
+            <p id="replay">Or click, if you want to watch it again.</p>
+            <p class="last-smile">:)</p>
+        </div>
+    </div>
+
+    <!-- Greensock -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f093fb', '#ffd876', '#a29bfe', '#fd79a8', '#00b894'];
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = -20 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                document.body.appendChild(confetti);
+            }
+        }
+
+        createParticles();
+        createConfetti();
+
+        // Trigger to play music in the background with sweetalert
+        window.addEventListener('load', () => {
+            Swal.fire({
+                title: '🎵 Do you want to play music?',
+                text: 'Make this celebration even more special!',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#667eea',
+                cancelButtonColor: '#f5576c',
+                confirmButtonText: 'Yes, play it! 🎶',
+                cancelButtonText: 'No, thanks',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                color: '#fff',
+                customClass: {
+                    popup: 'colored-toast'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.querySelector('.song').play();
+                    animationTimeline();
+                } else {
+                    animationTimeline();
+                }
+            });
+        });
+
+        // Animation timeline
+        const animationTimeline = () => {
+            // Split chars that needs to be animated individually
+            const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
+            const hbd = document.getElementsByClassName("wish-hbd")[0];
+
+            textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
+                .split("")
+                .join("</span><span>")}</span>`;
+
+            hbd.innerHTML = `<span>${hbd.innerHTML
+                .split("")
+                .join("</span><span>")}</span>`;
+
+            const ideaTextTrans = {
+                opacity: 0,
+                y: -20,
+                rotationX: 5,
+                skewX: "15deg"
+            }
+
+            const ideaTextTransLeave = {
+                opacity: 0,
+                y: 20,
+                rotationY: 5,
+                skewX: "-15deg"
+            }
+
+            // Timeline
+            const tl = new TimelineMax();
+
+            tl.to(".container", 0.6, {
+                visibility: "visible"
+            })
+            .from(".one", 0.7, {
+                opacity: 0,
+                y: 10
+            })
+            .from(".two", 0.4, {
+                opacity: 0,
+                y: 10
+            })
+            .to(".one", 0.7, {
+                opacity: 0,
+                y: 10
+            }, "+=3.5")
+            .to(".two", 0.7, {
+                opacity: 0,
+                y: 10
+            }, "-=1")
+            .from(".three", 0.7, {
+                opacity: 0,
+                y: 10
+            })
+            .to(".three", 0.7, {
+                opacity: 0,
+                y: 10
+            }, "+=3")
+            .from(".four", 0.7, {
+                scale: 0.2,
+                opacity: 0,
+            })
+            .from(".fake-btn", 0.3, {
+                scale: 0.2,
+                opacity: 0,
+            })
+            .staggerTo(".hbd-chatbox span", 1.5, {
+                visibility: "visible",
+            }, 0.05)
+            .to(".fake-btn", 0.1, {
+                backgroundColor: "#4ecdc4",
+            }, "+=4")
+            .to(".four", 0.5, {
+                scale: 0.2,
+                opacity: 0,
+                y: -150
+            }, "+=1")
+            .from(".idea-1", 0.7, ideaTextTrans)
+            .to(".idea-1", 0.7, ideaTextTransLeave, "+=2.5")
+            .from(".idea-2", 0.7, ideaTextTrans)
+            .to(".idea-2", 0.7, ideaTextTransLeave, "+=2.5")
+            .from(".idea-3", 0.7, ideaTextTrans)
+            .to(".idea-3 strong", 0.5, {
+                scale: 1.2,
+                x: 10,
+                backgroundColor: "#f093fb",
+                color: "#fff",
+            })
+            .to(".idea-3", 0.7, ideaTextTransLeave, "+=2.5")
+            .from(".idea-4", 0.7, ideaTextTrans)
+            .to(".idea-4", 0.7, ideaTextTransLeave, "+=2.5")
+            .from(".idea-5", 0.7, {
+                rotationX: 15,
+                rotationZ: -10,
+                skewY: "-5deg",
+                y: 50,
+                z: 10,
+                opacity: 0,
+            }, "+=1.5")
+            .to(".idea-5 span", 0.7, {
+                rotation: 90,
+                x: 8,
+            }, "+=1.4")
+            .to(".idea-5", 0.7, {
+                scale: 0.2,
+                opacity: 0,
+            }, "+=2")
+            .staggerFrom(".idea-6 span", 0.8, {
+                scale: 3,
+                opacity: 0,
+                rotation: 15,
+                ease: Expo.easeOut,
+            }, 0.2)
+            .staggerTo(".idea-6 span", 0.8, {
+                scale: 3,
+                opacity: 0,
+                rotation: -15,
+                ease: Expo.easeOut,
+            }, 0.2, "+=1.5")
+            .staggerFromTo(".baloons img", 2.5, {
+                opacity: 0.9,
+                y: 1400,
+            }, {
+                opacity: 1,
+                y: -1000,
+            }, 0.2)
+            .from(".profile-picture", 0.5, {
+                scale: 3.5,
+                opacity: 0,
+                x: 25,
+                y: -25,
+                rotationZ: -45,
+            }, "-=2")
+            .from(".hat", 0.5, {
+                x: -100,
+                y: 350,
+                rotation: -180,
+                opacity: 0,
+            })
+            .staggerFrom(".wish-hbd span", 0.7, {
+                opacity: 0,
+                y: -50,
+                rotation: 150,
+                skewX: "30deg",
+                ease: Elastic.easeOut.config(1, 0.5),
+            }, 0.1)
+            .staggerFromTo(".wish-hbd span", 0.7, {
+                scale: 1.4,
+                rotationY: 150,
+            }, {
+                scale: 1,
+                rotationY: 0,
+                color: "#ff6b6b",
+                ease: Expo.easeOut,
+            }, 0.1, "party")
+            .from(".wish h5", 0.5, {
+                opacity: 0,
+                y: 10,
+                skewX: "-15deg",
+            }, "party")
+            .staggerTo(".eight svg", 1.5, {
+                visibility: "visible",
+                opacity: 0,
+                scale: 80,
+                repeat: 3,
+                repeatDelay: 1.4,
+            }, 0.3)
+            .to(".six", 0.5, {
+                opacity: 0,
+                y: 30,
+                zIndex: "-1",
+            })
+            .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
+            .to(".last-smile", 0.5, {
+                rotation: 90,
+            }, "+=1");
+
+            // Restart Animation on click
+            const replyBtn = document.getElementById("replay");
+            replyBtn.addEventListener("click", () => {
+                tl.restart();
+            });
+        }
+    </script>
+</body>
+</html>
